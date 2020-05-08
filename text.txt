@@ -1,0 +1,21 @@
+import scipy as sp
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+t1 = [5*np.sin(1*np.pi*t) for t in np.linspace(0,1, 1000)]
+
+t2 = [7*np.sin(2*np.pi*t) for t in np.linspace(0,3, 1000)]
+
+t3 = [9*np.sin(1*np.pi*t) for t in np.linspace(0,4, 1000)]
+
+SAVM=[i+J+K for i,J,K in zip(t1,t2,t3)]
+
+#plt.plot(SAVM)
+
+S=np.fft.fft(SAVM)
+#plt.plot(SAVM)
+#print(SAVM)
+plt.plot(abs(S[0]))
+plt.plot(S)
+plt.show()
